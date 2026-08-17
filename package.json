@@ -3,6 +3,26 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "imports": {
+    "#src/*.js": "./src/*.js",
+    "#src/*": "./src/*.js",
+    "#config/*.js": "./src/config/*.js",
+    "#config/*": "./src/config/*.js",
+    "#controllers/*.js": "./src/controllers/*.js",
+    "#controllers/*": "./src/controllers/*.js",
+    "#middleware/*.js": "./src/middleware/*.js",
+    "#middleware/*": "./src/middleware/*.js",
+    "#models/*.js": "./src/models/*.js",
+    "#models/*": "./src/models/*.js",
+    "#routes/*.js": "./src/routes/*.js",
+    "#routes/*": "./src/routes/*.js",
+    "#services/*.js": "./src/services/*.js",
+    "#services/*": "./src/services/*.js",
+    "#utils/*.js": "./src/utils/*.js",
+    "#utils/*": "./src/utils/*.js",
+    "#validations/*.js": "./src/validations/*.js",
+    "#validations/*": "./src/validations/*.js"
+  },
   "scripts": {
     "dev": "node --watch src/index.js",
     "lint": "eslint .",
@@ -19,9 +39,14 @@
   "type": "module",
   "dependencies": {
     "@neondatabase/serverless": "^1.1.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "drizzle-orm": "^0.45.2",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "helmet": "^8.3.0",
+    "morgan": "^1.11.0",
+    "winston": "^3.19.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
