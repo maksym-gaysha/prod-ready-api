@@ -17,16 +17,16 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(morgan('combined', { stream: {write: (message) => logger.info(message.trim())} }));
 
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'OK', timestamp: new Date().toISOString(), uptime: process.uptime() });
+});
+
 app.use(securityMiddleware);
 
 app.get('/', (req, res) => {
   logger.info('From Logger');
 
   res.status(200).send('Server is running');
-});
-
-app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'OK', timestamp: new Date().toISOString(), uptime: process.uptime() });
 });
 
 app.get('/api', (req, res) => {
