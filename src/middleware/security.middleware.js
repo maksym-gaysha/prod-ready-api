@@ -16,7 +16,7 @@ const securityMiddleware = async (req, res, next) => {
         limit = 10;
         break;
       case 'guest':
-        limit = 100; // was 5
+        limit = 100; // or 5
         break;
     }
 
@@ -80,7 +80,7 @@ const securityMiddleware = async (req, res, next) => {
     res
       .status(500)
       .json({
-        errro: 'Internal server error',
+        error: 'Internal server error',
         message: 'Something went wrong with security middleware',
       });
   }
