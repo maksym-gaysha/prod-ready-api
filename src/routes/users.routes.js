@@ -4,8 +4,8 @@ import {
   fetchUserById,
   updateUserById,
   deleteUserById,
-} from '#controllers/users.controller.js';
-import { authenticateToken, requireRole } from '#middleware/auth.middleware.js';
+} from '../controllers/users.controller.js';
+import { authenticateToken, requireRole } from '../middleware/auth.middleware.js';
 
 const router = express.Router();
 

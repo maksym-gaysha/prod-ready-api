@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import logger from '#config/logger.js';
+import logger from '../config/logger.js';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'secretKey-change-in-prod';
 const JWT_EXPIERES_IN = '1d';

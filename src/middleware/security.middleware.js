@@ -1,9 +1,13 @@
-import aj from '#config/arcjet.js';
-import logger from '#config/logger.js';
+import aj from '../config/arcjet.js';
+import logger from '../config/logger.js';
 import { slidingWindow } from '@arcjet/node';
 
 const securityMiddleware = async (req, res, next) => {
   try {
+    if (process.env.NODE_ENV === 'test') {
+      return next();
+    }
+
     const role = req.user?.role || 'guest';
 
     let limit;
@@ -29,7 +33,9 @@ const securityMiddleware = async (req, res, next) => {
       })
     );
 
-    const decision = await client.protect(req);
+    const decision = await client.protect(req, {
+      ipSrc: req.ip || '127.0.0.1',
+    });
 
     if (decision.isDenied() && decision.reason.isBot()) {
       logger.warn('Bot request blocked', {

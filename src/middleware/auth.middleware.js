@@ -1,5 +1,5 @@
-import logger from '#config/logger.js';
-import { jwttoken } from '#utils/jwt.js';
+import logger from '../config/logger.js';
+import { jwttoken } from '../utils/jwt.js';
 
 export const authenticateToken = (req, res, next) => {
   try {

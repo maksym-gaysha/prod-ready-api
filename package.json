@@ -4,24 +4,15 @@
   "description": "",
   "main": "index.js",
   "imports": {
-    "#src/*.js": "./src/*.js",
-    "#src/*": "./src/*.js",
-    "#config/*.js": "./src/config/*.js",
-    "#config/*": "./src/config/*.js",
-    "#controllers/*.js": "./src/controllers/*.js",
-    "#controllers/*": "./src/controllers/*.js",
-    "#middleware/*.js": "./src/middleware/*.js",
-    "#middleware/*": "./src/middleware/*.js",
-    "#models/*.js": "./src/models/*.js",
-    "#models/*": "./src/models/*.js",
-    "#routes/*.js": "./src/routes/*.js",
-    "#routes/*": "./src/routes/*.js",
-    "#services/*.js": "./src/services/*.js",
-    "#services/*": "./src/services/*.js",
-    "#utils/*.js": "./src/utils/*.js",
-    "#utils/*": "./src/utils/*.js",
-    "#validations/*.js": "./src/validations/*.js",
-    "#validations/*": "./src/validations/*.js"
+    "#src/*": "./src/*",
+    "#config/*": "./src/config/*",
+    "#controllers/*": "./src/controllers/*",
+    "#middleware/*": "./src/middleware/*",
+    "#models/*": "./src/models/*",
+    "#routes/*": "./src/routes/*",
+    "#services/*": "./src/services/*",
+    "#utils/*": "./src/utils/*",
+    "#validations/*": "./src/validations/*"
   },
   "scripts": {
     "dev": "node --watch src/index.js",
@@ -34,7 +25,8 @@
     "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio",
     "dev:docker": "bash ./scripts/dev.sh",
-    "prod:docker": "bash ./scripts/prod.sh"
+    "prod:docker": "bash ./scripts/prod.sh",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "keywords": [],
   "author": "",
@@ -62,6 +54,8 @@
     "eslint": "^10.8.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.6",
-    "prettier": "^3.9.6"
+    "jest": "^30.5.0",
+    "prettier": "^3.9.6",
+    "supertest": "^7.2.2"
   }
 }

@@ -1,6 +1,6 @@
-import logger from '#config/logger.js';
-import { db } from '#config/database.js';
-import { users } from '#models/user.model.js';
+import logger from '../config/logger.js';
+import { db } from '../config/database.js';
+import { users } from '../models/user.model.js';
 import { eq } from 'drizzle-orm';
 
 export const getAllUsers = async () => {

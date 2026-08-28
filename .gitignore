@@ -1,4 +1,6 @@
-node_modules
+node_modules/
 .env
 logs/
-*.log.neon_local/
+*.log
+.neon_local/
+coverage/
