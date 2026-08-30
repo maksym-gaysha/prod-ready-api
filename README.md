@@ -43,16 +43,16 @@ A showcase backend API demonstrating production-grade engineering practices usin
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| **Runtime & Framework** | Node.js (v20+), Express 5 |
-| **Database & ORM** | Neon PostgreSQL Serverless, Drizzle ORM, Drizzle Kit |
-| **Security & Guard** | Arcjet (`@arcjet/node`), Helmet, bcrypt, jsonwebtoken |
-| **Validation** | Zod |
-| **Logging** | Winston, Morgan |
-| **Testing** | Jest, Supertest |
-| **Tooling & Code Style** | ESLint, Prettier |
-| **DevOps & Containers** | Docker, Docker Compose, GitHub Actions |
+| Layer                    | Technology                                            |
+| ------------------------ | ----------------------------------------------------- |
+| **Runtime & Framework**  | Node.js (v20+), Express 5                             |
+| **Database & ORM**       | Neon PostgreSQL Serverless, Drizzle ORM, Drizzle Kit  |
+| **Security & Guard**     | Arcjet (`@arcjet/node`), Helmet, bcrypt, jsonwebtoken |
+| **Validation**           | Zod                                                   |
+| **Logging**              | Winston, Morgan                                       |
+| **Testing**              | Jest, Supertest                                       |
+| **Tooling & Code Style** | ESLint, Prettier                                      |
+| **DevOps & Containers**  | Docker, Docker Compose, GitHub Actions                |
 
 ---
 
@@ -98,7 +98,7 @@ prod-ready-api/
 - **npm**: `v10.x` or higher
 - **PostgreSQL Database** (e.g., [Neon Serverless Postgres](https://neon.tech))
 - **Arcjet Account & API Key**: [arcjet.com](https://arcjet.com/) (for rate limiting and bot detection)
-- **Docker** *(optional, for containerized execution)*
+- **Docker** _(optional, for containerized execution)_
 
 ---
 
@@ -175,11 +175,11 @@ npm start
 
 This project uses [Drizzle ORM](https://orm.drizzle.team/) with Drizzle Kit for type-safe schema modeling and migrations.
 
-| Command | Description |
-|---|---|
+| Command               | Description                                                           |
+| --------------------- | --------------------------------------------------------------------- |
 | `npm run db:generate` | Generate SQL migration files based on schema changes in `src/models/` |
-| `npm run db:migrate` | Apply pending migrations to the target database |
-| `npm run db:studio` | Launch Drizzle Studio web GUI to browse and edit database records |
+| `npm run db:migrate`  | Apply pending migrations to the target database                       |
+| `npm run db:studio`   | Launch Drizzle Studio web GUI to browse and edit database records     |
 
 ---
 
@@ -187,11 +187,11 @@ This project uses [Drizzle ORM](https://orm.drizzle.team/) with Drizzle Kit for 
 
 ### System & Health
 
-| Method | Endpoint | Access | Description |
-|---|---|---|---|
-| `GET` | `/health` | Public | Returns service health, uptime, and current timestamp. |
-| `GET` | `/` | Public | Returns server status message. |
-| `GET` | `/api` | Public | API root status check. |
+| Method | Endpoint  | Access | Description                                            |
+| ------ | --------- | ------ | ------------------------------------------------------ |
+| `GET`  | `/health` | Public | Returns service health, uptime, and current timestamp. |
+| `GET`  | `/`       | Public | Returns server status message.                         |
+| `GET`  | `/api`    | Public | API root status check.                                 |
 
 ---
 
@@ -200,6 +200,7 @@ This project uses [Drizzle ORM](https://orm.drizzle.team/) with Drizzle Kit for 
 Base path: `/api/auth`
 
 #### 1. Sign Up
+
 - **Endpoint**: `POST /api/auth/sign-up`
 - **Access**: Public
 - **Request Body**:
@@ -214,6 +215,7 @@ Base path: `/api/auth`
 - **Response** `(201 Created)`: Returns created user details (excluding password) and sets an HTTP-only JWT cookie.
 
 #### 2. Sign In
+
 - **Endpoint**: `POST /api/auth/sign-in`
 - **Access**: Public
 - **Request Body**:
@@ -226,6 +228,7 @@ Base path: `/api/auth`
 - **Response** `(200 OK)`: Sets the `token` cookie containing the JWT payload and returns user info.
 
 #### 3. Sign Out
+
 - **Endpoint**: `POST /api/auth/sign-out`
 - **Access**: Public
 - **Response** `(200 OK)`: Clears the authentication cookie.
@@ -237,16 +240,19 @@ Base path: `/api/auth`
 Base path: `/api/users`
 
 #### 1. List All Users
+
 - **Endpoint**: `GET /api/users`
 - **Access**: Authenticated (Requires `admin` role)
 - **Response** `(200 OK)`: Array of user objects.
 
 #### 2. Get User by ID
+
 - **Endpoint**: `GET /api/users/:id`
 - **Access**: Authenticated
 - **Response** `(200 OK)`: User profile object.
 
 #### 3. Update User by ID
+
 - **Endpoint**: `PUT /api/users/:id`
 - **Access**: Authenticated (User can update own profile; `admin` can update any profile)
 - **Request Body**:
@@ -259,6 +265,7 @@ Base path: `/api/users`
 - **Response** `(200 OK)`: Updated user profile.
 
 #### 4. Delete User by ID
+
 - **Endpoint**: `DELETE /api/users/:id`
 - **Access**: Authenticated (Requires `admin` role)
 - **Response** `(200 OK)`: Confirmation message.
@@ -281,11 +288,13 @@ The API is fortified with **Arcjet** middleware that dynamically enforces securi
 ## Testing & Quality
 
 ### Run Unit and Integration Tests
+
 ```bash
 npm test
 ```
 
 ### Code Linting & Formatting
+
 ```bash
 # Check lint errors
 npm run lint
@@ -305,7 +314,9 @@ npm run format:check
 ## Docker & Containerization
 
 ### Development Container
+
 Starts the app inside a container with hot-reloading:
+
 ```bash
 npm run dev:docker
 # Or directly with compose:
@@ -313,7 +324,9 @@ docker compose -f docker-compose.dev.yml up --build
 ```
 
 ### Production Container
+
 Builds and runs the optimized production image:
+
 ```bash
 npm run prod:docker
 # Or directly with compose:
